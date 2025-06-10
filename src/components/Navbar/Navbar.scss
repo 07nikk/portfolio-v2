@@ -1,0 +1,96 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: black;
+  border-bottom: 1px solid #e9ecef;
+  font-family: var(--display-font);
+}
+
+.navbar__brand {
+  font-family: var(--display-font);
+  font-size: 1.8rem; /* Increased from 1.5rem */
+  color: var(--primary-color);
+  text-shadow: 0 0 8px var(--glow-color);
+}
+
+.navbar__links {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.navbar__links a {
+  text-decoration: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  position: relative;
+  font-family: var(--mono-font);
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  font-size: 1.1rem; /* Increased from 0.9rem */
+}
+
+/* Box and glow effect on hover */
+.navbar__links a:hover {
+  color: #00FF40;
+  background-color: rgba(0, 255, 64, 0.1);
+  box-shadow: 0 0 10px rgba(0, 255, 64, 0.7),
+              0 0 20px rgba(0, 255, 64, 0.3);
+  text-shadow: 0 0 10px rgba(0, 255, 64, 0.7),
+               0 0 20px rgba(0, 255, 64, 0.5),
+               0 0 30px rgba(0, 255, 64, 0.3);
+  border: 1px solid rgba(0, 255, 64, 0.3);
+}
+
+/* Box and glow effect for active link */
+.navbar__links a.active {
+  color: #00FF40;
+  background-color: rgba(0, 255, 64, 0.1);
+  box-shadow: 0 0 10px rgba(0, 255, 64, 0.7),
+              0 0 20px rgba(0, 255, 64, 0.3);
+  text-shadow: 0 0 10px rgba(0, 255, 64, 0.7),
+               0 0 20px rgba(0, 255, 64, 0.5),
+               0 0 30px rgba(0, 255, 64, 0.3);
+  border: 1px solid rgba(0, 255, 64, 0.3);
+}
+
+/* Keep the existing animation for the underline */
+.navbar__links a::before {
+  content: '';
+  width: 4px;
+  height: 2px;
+  border-radius: 50%;
+  position: absolute;
+  background: #00FF40;
+  bottom: 0; right: 0;
+  left: 0;
+  opacity: 0;
+  transform: scaleX(0);
+  transition: transform 0.4s;
+}
+
+.navbar__links a:hover::before {
+  opacity: 1;
+  transform: translateY(14px);
+  animation: anim 1s infinite;
+}
+
+@keyframes anim {
+  0%, 100% {
+    transform: scale(1) translateX(-10px);
+  }
+  50% {
+    transform: scale(1.2) translateX(50px);
+  }
+}

@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&family=Righteous&display=swap');
+
+:root {
+  --primary-color: #00FF40;
+  --primary-dark: #00CC33;
+  --secondary-color: #f8f9fa;
+  --background-color: #121212;
+  --text-color: #ffffff;
+  --subtext-color: #cccccc;
+  --glow-color: rgba(0, 255, 64, 0.7);
+  
+  /* Font variables */
+  --main-font: 'Outfit', sans-serif;
+  --mono-font: 'Space Mono', monospace;
+  --display-font: 'Righteous', cursive;
+}
+
+body {
+  background-color: var(--background-color);
+  margin: 0;
+  font-family: var(--main-font);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+.App-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  font-family: var(--display-font);
+  font-weight: 400;
+}
+
+h2, h3 {
+  font-family: var(--display-font);
+  font-weight: 400;
+}
+
+p {
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+a, button {
+  font-weight: 500;
+}
+
+/* Apply mono font to typing elements */
+.typing-title, .typing-text {
+  font-family: var(--mono-font);
+  letter-spacing: 0.03em;
+}
