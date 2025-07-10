@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import { useSelector } from "react-redux";
 import "./Home.scss";
 
@@ -10,11 +10,14 @@ const Home = () => {
     description: "",
   });
 
-  const fullText = {
-    title: "Welcome to My Portfolio",
-    subtitle: `Hi, I'm ${user.name}`,
-    description: `I'm a passionate ${user.role} dedicated to creating beautiful and functional web experiences.`,
-  };
+  const fullText = useMemo(
+    () => ({
+      title: "Welcome to My Portfolio",
+      subtitle: `Hi, I'm ${user.name}`,
+      description: `I'm a passionate ${user.role} dedicated to creating beautiful and functional web experiences.`,
+    }),
+    [user.name, user.role]
+  );
 
   useEffect(() => {
     let currentTextIndex = 0;

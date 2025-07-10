@@ -11,39 +11,33 @@ const About = () => {
 
   // animation effect for the title that repeats
   useEffect(() => {
-    let currentCharIndex = 0;
-    let typingSpeed = 100; // Base typing speed (milliseconds)
+    let currentCharIndex = isDeleting ? fullTitle.length : 0;
+    let typingSpeed = 100;
 
-    const typingInterval = setInterval(
-      () => {
-        // If we're deleting text
-        if (isDeleting) {
-          if (currentCharIndex > 0) {
-            currentCharIndex--;
-            setDisplayedTitle(fullTitle.substring(0, currentCharIndex));
-          } else {
-            setIsDeleting(false);
-            // Pause before starting to type again
-            setTimeout(() => {}, 10);
-          }
+    const handleTyping = () => {
+      if (isDeleting) {
+        if (currentCharIndex > 0) {
+          currentCharIndex--;
+          setDisplayedTitle(fullTitle.substring(0, currentCharIndex));
+          setTimeout(handleTyping, typingSpeed / 2);
+        } else {
+          setIsDeleting(false);
+          setTimeout(handleTyping, 1000); // short pause before typing
         }
-        // If we're typing text
-        else {
-          if (currentCharIndex < fullTitle.length) {
-            currentCharIndex++;
-            setDisplayedTitle(fullTitle.substring(0, currentCharIndex));
-          } else {
-            // Pause at the end before starting to delete
-            setTimeout(() => {
-              setIsDeleting(true);
-            }, 1500);
-          }
+      } else {
+        if (currentCharIndex < fullTitle.length) {
+          currentCharIndex++;
+          setDisplayedTitle(fullTitle.substring(0, currentCharIndex));
+          setTimeout(handleTyping, typingSpeed);
+        } else {
+          setIsDeleting(true);
+          setTimeout(handleTyping, 1500); // pause before deleting
         }
-      },
-      isDeleting ? typingSpeed / 2 : typingSpeed
-    ); // Delete faster than type
+      }
+    };
 
-    return () => clearInterval(typingInterval);
+    const timer = setTimeout(handleTyping, typingSpeed);
+    return () => clearTimeout(timer);
   }, [isDeleting]);
 
   return (
@@ -55,7 +49,11 @@ const About = () => {
 
       <div className="about-content">
         <div className="about-image">
-          <img src={pic} alt="My Photo" className="placeholder-image" />
+          <img
+            src={pic}
+            alt="Portrait of Nikhil Thakur"
+            className="placeholder-image"
+          />
         </div>
 
         <div className="about-text">
