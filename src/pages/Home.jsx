@@ -43,11 +43,10 @@ const Home = () => {
         currentTextIndex++;
         currentCharIndex = 0;
       }
-    }, 50); // Adjust typing speed here (milliseconds)
+    }, 50);
 
     return () => clearInterval(typingInterval);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [user.name, user.role]);
+  }, [fullText]);
 
   return (
     <div className="home-container">
