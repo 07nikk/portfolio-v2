@@ -10,13 +10,14 @@ const Home = () => {
     description: "",
   });
 
-  const fullText = useMemo(() => {
-    return {
+  const fullText = useMemo(
+    () => ({
       title: "Welcome to My Portfolio",
       subtitle: `Hi, I'm ${user.name}`,
       description: `I'm a passionate ${user.role} dedicated to creating beautiful and functional web experiences.`,
-    };
-  }, [user.name, user.role]);
+    }),
+    [user.name, user.role]
+  );
 
   useEffect(() => {
     let currentTextIndex = 0;
@@ -45,7 +46,7 @@ const Home = () => {
     }, 50);
 
     return () => clearInterval(typingInterval);
-  }, [fullText]);
+  }, [fullText]); // fixed dependency array
 
   return (
     <div className="home-container">
