@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useMemo } from "react";
+import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import "./Home.scss";
 
@@ -57,12 +58,12 @@ const Home = () => {
 
         {displayedText.description === fullText.description && (
           <div className="cta-buttons fade-in">
-            <a href="/portfolio-v2/about" className="btn btn-primary">
+            <Link to="/about" className="btn btn-primary">
               Learn More
-            </a>
-            <a href="/portfolio-v2/contact" className="btn btn-secondary">
+            </Link>
+            <Link to="/contact" className="btn btn-secondary">
               Contact Me
-            </a>
+            </Link>
           </div>
         )}
       </div>
