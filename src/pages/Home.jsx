@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useMemo } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import "./Home.scss";
 
@@ -10,16 +10,13 @@ const Home = () => {
     description: "",
   });
 
-  const fullText = useMemo(
-    () => ({
+  useEffect(() => {
+    const fullText = {
       title: "Welcome to My Portfolio",
       subtitle: `Hi, I'm ${user.name}`,
       description: `I'm a passionate ${user.role} dedicated to creating beautiful and functional web experiences.`,
-    }),
-    [user.name, user.role]
-  );
+    };
 
-  useEffect(() => {
     let currentTextIndex = 0;
     let currentCharIndex = 0;
     const textKeys = ["title", "subtitle", "description"];
@@ -46,7 +43,7 @@ const Home = () => {
     }, 50);
 
     return () => clearInterval(typingInterval);
-  }, [fullText]);
+  }, [user.name, user.role]);
 
   return (
     <div className="home-container">
@@ -55,7 +52,9 @@ const Home = () => {
         <h2 className="typing-text">{displayedText.subtitle}</h2>
         <p className="typing-text">{displayedText.description}</p>
 
-        {displayedText.description === fullText.description && (
+        {/* Safe to hardcode condition using user */}
+        {displayedText.description ===
+          `I'm a passionate ${user.role} dedicated to creating beautiful and functional web experiences.` && (
           <div className="cta-buttons fade-in">
             <a href="/about" className="btn btn-primary">
               Learn More
