@@ -8,7 +8,7 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="navbar__links">
-        <Link to="/">Nikhil Thakur</Link>
+        <Link to="/portfolio-v2">Nikhil Thakur</Link>
       </div>
       <div className="navbar__links">
         <Link to="/" className={location.pathname === "/" ? "active" : ""}>
