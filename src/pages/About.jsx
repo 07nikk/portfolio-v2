@@ -51,7 +51,7 @@ const About = () => {
         <div className="about-image">
           <img
             src={profile}
-            alt="Portrait of Nikhil Thakur"
+            alt="Nikhil Thakur"
             className="placeholder-image"
           />
         </div>
