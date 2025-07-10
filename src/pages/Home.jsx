@@ -57,10 +57,10 @@ const Home = () => {
 
         {displayedText.description === fullText.description && (
           <div className="cta-buttons fade-in">
-            <a href="/about" className="btn btn-primary">
+            <a href="/portfolio-v2/about" className="btn btn-primary">
               Learn More
             </a>
-            <a href="/contact" className="btn btn-secondary">
+            <a href="/portfolio-v2/contact" className="btn btn-secondary">
               Contact Me
             </a>
           </div>
