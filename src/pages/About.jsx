@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import "./About.scss";
-import pic from "../assets/pic.jpg";
+import profile from "../assets/profile.jpg";
 
 const About = () => {
   const user = useSelector((state) => state.user);
@@ -50,7 +50,7 @@ const About = () => {
       <div className="about-content">
         <div className="about-image">
           <img
-            src={pic}
+            src={profile}
             alt="Portrait of Nikhil Thakur"
             className="placeholder-image"
           />

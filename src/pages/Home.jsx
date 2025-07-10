@@ -46,7 +46,7 @@ const Home = () => {
     }, 50); // Adjust typing speed here (milliseconds)
 
     return () => clearInterval(typingInterval);
-  }, [user.name, user.role, fullText]);
+  }, [user.name, user.role]);
 
   return (
     <div className="home-container">
