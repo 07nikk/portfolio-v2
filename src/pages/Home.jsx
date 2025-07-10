@@ -46,6 +46,7 @@ const Home = () => {
     }, 50); // Adjust typing speed here (milliseconds)
 
     return () => clearInterval(typingInterval);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user.name, user.role]);
 
   return (
