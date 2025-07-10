@@ -2,6 +2,7 @@
   "name": "my-portfolio",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://07nikk.github.io/portfolio-v2",
   "dependencies": {
     "@reduxjs/toolkit": "^2.8.2",
     "cra-template-pwa": "2.0.0",
